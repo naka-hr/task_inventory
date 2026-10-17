@@ -34,22 +34,21 @@ inventory_movement_recalculation_requests {
 なし
 
 ## index追加
-①inventory_daily_movementsテーブルにunique_indexを追加
-unique_index[company_id, inventory_id, scheduled_date]
-同じ会社・在庫・予定日の集計データが重複しないようにする 
+①inventory_daily_movementsテーブルにunique_indexを追加  
+unique_index[company_id, inventory_id, scheduled_date]  
+同じ会社・在庫・予定日の集計データが重複しないようにする   
 
-②inventory_movement_recalculation_requestsテーブル
-→unique_index[company_id, inventory_id, scheduled_date]
-同じ会社・在庫・予定日の集計データが重複しないようにする 
+②inventory_movement_recalculation_requestsテーブル  
+unique_index[company_id, inventory_id, scheduled_date]   
+同じ会社・在庫・予定日の集計データが重複しないようにする   
 
-③delivery_itemテーブル
-→index[company_id, inventory_id, status, scheduled_date]
+③delivery_itemテーブル  
+→index[company_id, inventory_id, status, scheduled_date]  
 集計の時の検索用(日付とステータスでwhereする用)
 
-
-④purchase_itemテーブル
-→index[company_id, inventory_id, status, scheduled_date]
-集計の時の検索用(日付とステータスでwhereする用)
+④purchase_itemテーブル  
+→index[company_id, inventory_id, status, scheduled_date]  
+集計の時の検索用(日付とステータスでwhereする用)  
 
 # インフラ設計
 変更なし
@@ -62,8 +61,8 @@ unique_index[company_id, inventory_id, scheduled_date]
 考えた選択肢
 ①都度、入出庫明細から計算する
 ②集計テーブルを利用して計算を行っておく(在庫に対して入出庫予定数を計算しておく)
-→②を選択
-┗①にすると都度計算が走り負荷が大きいため、集計テーブルを利用しての計算を選択(入出庫の増減数がすでに計算されていれば在庫数から指定日までの入出庫予定数を加減する計算だけで済むため。)
+→②を選択  
+┗①にすると都度計算が走り負荷が大きいため、集計テーブルを利用しての計算を選択(入出庫の増減数がすでに計算されていれば在庫数から指定日までの入出庫予定数を加減する計算だけで済むため。)  
 
 ## 集計テーブルについて
 非同期で更新する
