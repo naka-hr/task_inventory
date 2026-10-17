@@ -6,6 +6,7 @@
 ①日別の在庫数集計テーブル
 →inventory_daily_movements
 
+```
 inventory_daily_movements {
     bigint id PK
     bigint company_id FK # アカウントID
@@ -16,8 +17,10 @@ inventory_daily_movements {
     datetime created_at # 作成日時
     datetime updated_at # 更新日時
 }
+```
 
 ②入出庫予定日(scheduled_date)が変更された場合の再集計依頼用テーブル
+```
 inventory_movement_recalculation_requests {
     bigint id PK
     bigint company_id FK # アカウントID
@@ -26,7 +29,7 @@ inventory_movement_recalculation_requests {
     datetime created_at # 作成日時
     datetime updated_at # 更新日時
 }
-
+```
 ## カラム追加
 なし
 
