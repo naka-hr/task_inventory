@@ -19,7 +19,7 @@ inventory_daily_movements {
 }
 ```
 
-②入出庫予定日(scheduled_date)が変更された場合の再集計依頼用テーブル
+②入出庫明細の作成・更新・削除によって再集計が必要となった 場合の再集計依頼用テーブル  
 ```
 inventory_movement_recalculation_requests {
     bigint id PK
