@@ -38,15 +38,15 @@ inventory_movement_recalculation_requests {
 unique_index[company_id, inventory_id, scheduled_date]  
 同じ会社・在庫・予定日の集計データが重複しないようにする   
 
-②inventory_movement_recalculation_requestsテーブル  
+②inventory_movement_recalculation_requestsテーブルにunique_indexを追加  
 unique_index[company_id, inventory_id, scheduled_date]   
 同じ会社・在庫・予定日の集計データが重複しないようにする   
 
-③delivery_itemテーブル  
+③delivery_itemテーブルにindexを追加  
 →index[company_id, inventory_id, status, scheduled_date]  
 集計の時の検索用(日付とステータスでwhereする用)
 
-④purchase_itemテーブル  
+④purchase_itemテーブルにindexを追加  
 →index[company_id, inventory_id, status, scheduled_date]  
 集計の時の検索用(日付とステータスでwhereする用)  
 
