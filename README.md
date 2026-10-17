@@ -94,5 +94,5 @@ unique_index[company_id, inventory_id, scheduled_date]
 
 
 ・1分ごとに集計するバッチを作成(ECSのScheduled Taskなどで実行)  
-・バッチはMySQL の GET_LOCK のようなイメージで排他制御を行う  
+・バッチはMySQL の GET_LOCK のように排他制御を行う  
 →redisを使うことがあれば任意のlock_keyを設定して同じようなことができる想定  
